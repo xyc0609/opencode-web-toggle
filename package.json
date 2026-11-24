@@ -1,0 +1,31 @@
+{
+  "name": "opencode-web-connect",
+  "version": "0.2.2",
+  "description": "A global online-search toggle for OpenCode Desktop on macOS",
+  "license": "MIT",
+  "keywords": ["opencode", "plugin", "desktop", "search", "ollama"],
+  "private": false,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./gui-experimental": "./dist/gui-experimental.cjs"
+  },
+  "files": ["src", "dist", "README.md", "README.zh-CN.md", "INSTALL.md", "VERIFICATION.md", "docs/screenshots"],
+  "scripts": {
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build:test-server && node --test tests/*.test.mjs",
+    "build:test-server": "esbuild src/index.ts --bundle --platform=node --format=esm --packages=external --outfile=work/server-plugin-test.mjs"
+  },
+  "dependencies": {
+    "@opencode/plugin": "2.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "esbuild": "0.28.2",
+    "solid-js": "^1.9.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.0.0",
+    "vite-plugin-solid": "^2.11.0"
+  }
+}
