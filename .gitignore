@@ -1,0 +1,11 @@
+node_modules/
+work/
+.local-backups/
+.env
+.env.*
+!.env.example
+*.log
+*.tgz
+.DS_Store
+.idea/
+.vscode/
